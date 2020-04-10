@@ -54,6 +54,7 @@ export default function Item({ item }) {
 
 export async function getStaticPaths() {
   const items = await getItems();
+  console.log(items);
 
   // Get the paths we want to pre-render based on posts
   const paths = items.resources.map(item => ({
