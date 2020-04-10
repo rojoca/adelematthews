@@ -15,7 +15,7 @@ export default function Home({ items }) {
         </p>
       </div>
 
-      <div>
+      <div class="flex flex-row">
         {items.map(item => (
           <Item item={item} key={item.src} />
         ))}
