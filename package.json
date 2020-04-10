@@ -12,7 +12,10 @@
     "lodash": "4.0",
     "next": "9.3.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "typeface-montserrat": "^0.0.75",
+    "typeface-raleway": "^0.0.75",
+    "typeface-spartan": "^1.1.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",
