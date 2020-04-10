@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "CLOUDINARY_KEY": "@cloudinary_key"
+      "CLOUDINARY_KEY": "@cloudinary_key",
       "CLOUDINARY_SECRET": "@cloudinary_secret"
     }
   }
