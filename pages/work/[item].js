@@ -25,6 +25,7 @@ export default function Item({ item }) {
   const data = item.context.custom;
 
   if (data.date) {
+    console.log(data.date);
     data.date = dtf.format(new Date(data.date));
   }
 
