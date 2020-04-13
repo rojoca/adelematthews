@@ -5,7 +5,11 @@ export default function Layout({ children }) {
   return (
     <div className="font-body container mx-auto p-8">
       <div className="flex flex-row items-center justify-between mb-16">
-        <img src="/logo.png" className="h-4 sm:h-6 md:h-8" />
+        <Link href="/">
+          <a>
+            <img src="/logo.png" className="h-4" />
+          </a>
+        </Link>
         <nav className="hidden sm:block flex flex-row items-center justify-end uppercase text-sm">
           <Link href="/">
             <a className="text-gray-600 hover:text-gray-900">Work</a>
