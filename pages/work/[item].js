@@ -24,11 +24,6 @@ function P({ children, classNames }) {
 export default function Item({ item }) {
   const data = item.context.custom;
 
-  if (data.date) {
-    console.log(data.date);
-    data.date = dtf.format(new Date(data.date));
-  }
-
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
       <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-8">
@@ -64,7 +59,7 @@ export default function Item({ item }) {
                   {data.materials}
                 </span>
               )}
-              {data.date && <span>{data.date}</span>}
+              {data.date && <span>{data.formatted_date}</span>}
             </div>
           )}
         </motion.div>
@@ -93,6 +88,11 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const item = await getItem(params.item);
+  if (item && item.context && item.context.custom && item.context.custom.date) {
+    item.context.custom.formatted_date = dtf.format(
+      new Date(item.context.custom.date)
+    );
+  }
 
   // Pass post data to the page via props
   return { props: { item } };
