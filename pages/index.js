@@ -7,7 +7,7 @@ function Item({ item }) {
   const data = item.context.custom;
   return (
     <Link href="/work/[item]" as={`/work/${item.public_id}`}>
-      <figure className="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
+      <figure className="cursor-pointer w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
         <Image cloudName="rojoca" publicId={item.public_id}>
           <Transformation aspectRatio="1" crop="crop" />
         </Image>

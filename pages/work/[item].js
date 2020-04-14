@@ -24,6 +24,15 @@ function P({ children, classNames }) {
 export default function Item({ item }) {
   const data = item.context.custom;
 
+  const variants = {
+    visible: {
+      opacity: 1,
+      boxShadow:
+        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+    },
+    hidden: { opactiy: 0 }
+  };
+
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
       <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-8">
@@ -38,12 +47,11 @@ export default function Item({ item }) {
       </Image>
       <div className="w-full text-sm text-gray-700 sm:w-1/2 md:w-1/3 sm:pl-8 pt-4 sm:pt-0">
         <motion.div
-          className="p-2"
+          className="p-2 shadow-md"
           transition={{ duration: 3 }}
-          animate={{
-            boxShadow:
-              "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-          }}
+          animate="visible"
+          initial="hidden"
+          variants={variants}
         >
           <p className="font-bold">{data.caption}</p>
           {data.alt && <p className="text-xs">{data.alt}</p>}
