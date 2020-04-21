@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/ui": "^0.1.3",
     "@xstate/react": "^0.8.1",
     "cloudinary-react": "^1.4.0",
+    "formik": "^2.1.4",
     "framer-motion": "^1.10.3",
     "lodash": "4.0",
     "next": "9.3.4",
@@ -18,7 +20,8 @@
     "typeface-montserrat": "^0.0.75",
     "typeface-raleway": "^0.0.75",
     "typeface-spartan": "^1.1.4",
-    "xstate": "^4.8.0"
+    "xstate": "^4.8.0",
+    "yup": "^0.28.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.2",

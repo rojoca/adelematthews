@@ -27,8 +27,8 @@ function NavItems() {
       <Link href="/about">
         <a className="text-gray-600 hover:text-gray-900 ml-8">About</a>
       </Link>
-      <Link href="/contact">
-        <a className="text-gray-600 hover:text-gray-900 ml-8">Contact</a>
+      <Link href="/enquiries">
+        <a className="text-gray-600 hover:text-gray-900 ml-8">Enquiries</a>
       </Link>
     </>
   );
