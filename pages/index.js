@@ -49,7 +49,7 @@ export default function Home({ items }) {
           </p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row -mx-4">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap -mx-4">
         {items.map(item => (
           <Item item={item} key={item.public_id} />
         ))}

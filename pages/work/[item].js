@@ -4,6 +4,8 @@ import { getItems, getItem } from "../api"
 import React from "react"
 import { Image, Transformation } from "cloudinary-react"
 import { motion } from "framer-motion"
+import TwitterIcon from "../../components/TwitterIcon"
+import FacebookIcon from "../../components/FacebookIcon"
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "decimal",
@@ -80,16 +82,30 @@ export default function Item({ item }) {
             </div>
           )}
         </motion.div>
-        <div className="mt-4 p-2 text-xs text-right text-gray-500">
-          <span>
-            share |{" "}
-            <Link
-              href={`/enquiries?workId=${item.public_id}&caption=${data.caption}&alt=${data.alt}`}
+        <div className="mt-4 p-2 text-xs flex items-center text-right text-gray-500 justify-between">
+          <div className="flex-grow flex items-center">
+            <a
+              target="_blank"
+              href={`https://twitter.com/intent/tweet?url=https://adelematthews.nz/work/${item.public_id}`}
+              className="mr-2 text-gray-200 hover:text-gray-500"
             >
-              <a>enquire</a>
-            </Link>
-          </span>
+              <TwitterIcon className="h-4 w-4" />
+            </a>
+            <a
+              target="_blank"
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://adelematthews.nz/work/${item.public_id}`}
+              className="text-gray-200 hover:text-gray-500"
+            >
+              <FacebookIcon className="h-4 w-4" />
+            </a>
+          </div>
+          <Link
+            href={`/enquiries?workId=${item.public_id}&caption=${data.caption}&alt=${data.alt}`}
+          >
+            <a className="text-gray-300 hover:text-gray-600">enquire</a>
+          </Link>
         </div>
+        <div className="w-full hidden"></div>
       </div>
     </div>
   )

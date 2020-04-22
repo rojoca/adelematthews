@@ -54,6 +54,7 @@ function Error() {
 }
 
 function ContactForm({ initialValues, handleSubmit }) {
+  console.log(initialValues)
   return (
     <Formik
       enableReinitialize={true}
@@ -63,6 +64,10 @@ function ContactForm({ initialValues, handleSubmit }) {
     >
       <Form className="w-full lg:w-1/2 xl:w-1/3">
         <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4">Enquiries</h1>
+        <p className="mb-4">
+          You can contact me about my work using the form below or call on{" "}
+          <a href="tel:+64212267155">+64 21 226 7155</a>
+        </p>
         {initialValues.workId && (
           <div className="rounded shadow p-4 mb-6 flex">
             <img
@@ -104,7 +109,7 @@ const vals = query => ({
   email: "",
   workId: query.workId,
   workCaption: query.caption,
-  workAlt: query.alt,
+  workAlt: !query.alt || query.alt === "undefined" ? "" : query.alt,
 })
 
 export default function Contact(props) {
