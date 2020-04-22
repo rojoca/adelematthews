@@ -10,12 +10,12 @@ const MenuMachine = Machine({
   initial: "closed",
   states: {
     closed: {
-      on: { TOGGLE: "open" }
+      on: { TOGGLE: "open" },
     },
     open: {
-      on: { TOGGLE: "closed" }
-    }
-  }
+      on: { TOGGLE: "closed" },
+    },
+  },
 });
 
 function NavItems() {
@@ -38,7 +38,7 @@ export default function Layout({ children }) {
   const [current, send] = useMachine(MenuMachine);
   const variants = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%" }
+    closed: { opacity: 0, x: "-100%" },
   };
 
   return (
@@ -52,11 +52,7 @@ export default function Layout({ children }) {
         <nav className="hidden sm:block flex flex-row items-center justify-end uppercase text-sm">
           <NavItems />
         </nav>
-        <motion.nav
-          className="sm:hidden fixed"
-          initial={false}
-          animate={current.state}
-        >
+        <motion.nav className="sm:hidden fixed" initial={false} animate={current.state}>
           <button
             type="button"
             className="border-none bg-transparent sm:hidden w-4"
@@ -68,7 +64,7 @@ export default function Layout({ children }) {
       </div>
       <div className="min-h-80 mb-8">{children}</div>
       <div className="w-full text-gray-600 text-sm">
-        Adele Matthews · Wellington, New Zealand
+        &copy; Adele Matthews · Wellington, New Zealand
       </div>
     </div>
   );
