@@ -3,15 +3,15 @@ module.exports = {
     fontFamily: {
       display: ["Raleway", "sans-serif"],
       body: ["Raleway", "sans-serif"],
-      titles: ["Spartan", "sans-serif"]
+      titles: ["Spartan", "sans-serif"],
     },
 
     extend: {
       minHeight: {
-        "min-h-80": "80vh"
-      }
-    }
+        "min-h-80": "80vh",
+      },
+    },
   },
   variants: {},
-  plugins: [require("@tailwindcss/ui")]
+  plugins: ["@tailwindcss/ui"],
 };
