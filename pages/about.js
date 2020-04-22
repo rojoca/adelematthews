@@ -53,7 +53,7 @@ export default function About(props) {
 
       <div className="md:flex md:flex-row items-start">
         <figure className="float-left md:block w-1/2 pr-4 pb-4 md:pr-8 md:pb-8">
-          <Image cloudName="rojoca" publicId="coaster-5">
+          <Image cloudName="rojoca" publicId="forest-floor-5">
             <Transformation aspectRatio="1" crop="crop" />
           </Image>
         </figure>

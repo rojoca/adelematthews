@@ -17,6 +17,13 @@ const dtf = new Intl.DateTimeFormat("en", {
   month: "short",
 })
 
+function price(value) {
+  if (isNaN(value)) {
+    return ""
+  }
+  return `$${formatter.format(value)}`
+}
+
 function P({ children, classNames }) {
   let cls = "mb-4"
   if (classNames) {
@@ -68,7 +75,9 @@ export default function Item({ item }) {
         >
           <p className="font-bold">{data.caption}</p>
           {data.alt && <p className="text-xs">{data.alt}</p>}
-          {data.price && <P classNames="italic uppercase">${formatter.format(data.price)}</P>}
+          {data.price && !isNaN(data.price) && (
+            <P classNames="italic uppercase">{price(data.price)}</P>
+          )}
           {(data.materials || data.date) && (
             <div className="flex flex-row items-end justify-between text-xs text-gray-500">
               {data.materials && (
@@ -113,7 +122,6 @@ export default function Item({ item }) {
 
 export async function getStaticPaths() {
   const items = await getItems()
-  console.log(items)
 
   // Get the paths we want to pre-render based on posts
   const paths = items.resources.map(item => ({
