@@ -77,7 +77,7 @@ export default function Layout({ children }) {
             >
               <button
                 onClick={() => setState("closed")}
-                className="text-right pr-0 mr-0 w-4 p-2 -mt-2 text-gray-500"
+                className="text-right pr-0 mr-0 w-8 p-2 -mt-2 -mr-2 text-gray-500"
               >
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-4 h-4">
                   <path
