@@ -1,11 +1,11 @@
-import Head from "next/head"
-import Link from "next/link"
-import { getItems } from "./api"
-import React from "react"
-import { Image, Transformation } from "cloudinary-react"
+import Head from "next/head";
+import Link from "next/link";
+import { getItems } from "./api";
+import React from "react";
+import { Image, Transformation } from "cloudinary-react";
 
 function Item({ item }) {
-  const data = item.context.custom
+  const data = item.context.custom;
   return (
     <Link href="/work/[item]" as={`/work/${item.public_id}`}>
       <a className="cursor-pointer w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
@@ -17,7 +17,7 @@ function Item({ item }) {
         </figure>
       </a>
     </Link>
-  )
+  );
 }
 
 export default function Home({ items }) {
@@ -34,6 +34,13 @@ export default function Home({ items }) {
         />
         <meta
           property="og:image"
+          content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/${items[0].public_id}`}
+        />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="Adele Matthews - New Zealand Artist" />
+        <meta property="twitter:description" content="New Zealand artist working in Wellington." />
+        <meta
+          property="twitter:image"
           content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/${items[0].public_id}`}
         />
         <link rel="icon" type="image/png" href="/favicon.ico" />
@@ -55,13 +62,13 @@ export default function Home({ items }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps(context) {
-  const items = await getItems()
+  const items = await getItems();
 
   return {
     props: { items: items.resources }, // will be passed to the page component as props
-  }
+  };
 }

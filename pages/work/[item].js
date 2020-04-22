@@ -1,39 +1,39 @@
-import Head from "next/head"
-import Link from "next/link"
-import { getItems, getItem } from "../api"
-import React from "react"
-import { Image, Transformation } from "cloudinary-react"
-import { motion } from "framer-motion"
-import TwitterIcon from "../../components/TwitterIcon"
-import FacebookIcon from "../../components/FacebookIcon"
+import Head from "next/head";
+import Link from "next/link";
+import { getItems, getItem } from "../api";
+import React from "react";
+import { Image, Transformation } from "cloudinary-react";
+import { motion } from "framer-motion";
+import TwitterIcon from "../../components/TwitterIcon";
+import FacebookIcon from "../../components/FacebookIcon";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "decimal",
   currency: "NZD",
-})
+});
 
 const dtf = new Intl.DateTimeFormat("en", {
   year: "numeric",
   month: "short",
-})
+});
 
 function price(value) {
   if (isNaN(value)) {
-    return ""
+    return "";
   }
-  return `$${formatter.format(value)}`
+  return `$${formatter.format(value)}`;
 }
 
 function P({ children, classNames }) {
-  let cls = "mb-4"
+  let cls = "mb-4";
   if (classNames) {
-    cls = `${classNames} ${cls}`
+    cls = `${classNames} ${cls}`;
   }
-  return <p className={cls}>{children}</p>
+  return <p className={cls}>{children}</p>;
 }
 
 export default function Item({ item }) {
-  const data = item.context.custom
+  const data = item.context.custom;
 
   const variants = {
     visible: {
@@ -41,7 +41,9 @@ export default function Item({ item }) {
       boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
     },
     hidden: { opactiy: 0 },
-  }
+  };
+
+  const description = data.alt && data.alt !== "undefined" ? data.alt : "New Zealand Art";
 
   return (
     <div className="flex flex-col sm:flex-row flex-wrap">
@@ -50,9 +52,16 @@ export default function Item({ item }) {
         <meta property="og:url" content={`https://adelematthews.nz/work/${item.public_id}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`Adele Matthews - ${data.caption}`} />
-        <meta property="og:description" content={data.alt} />
+        <meta property="og:description" content={description} />
         <meta
           property="og:image"
+          content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/${item.public_id}`}
+        />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content={`Adele Matthews - ${data.caption}`} />
+        <meta property="twitter:description" content={description} />
+        <meta
+          property="twitter:image"
           content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/${item.public_id}`}
         />
         <link rel="icon" type="image/png" href="/favicon.ico" />
@@ -117,29 +126,29 @@ export default function Item({ item }) {
         <div className="w-full hidden"></div>
       </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticPaths() {
-  const items = await getItems()
+  const items = await getItems();
 
   // Get the paths we want to pre-render based on posts
   const paths = items.resources.map(item => ({
     params: { item: item.public_id },
-  }))
+  }));
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  const item = await getItem(params.item)
+  const item = await getItem(params.item);
   if (item && item.context && item.context.custom && item.context.custom.date) {
-    item.context.custom.formatted_date = dtf.format(new Date(item.context.custom.date))
+    item.context.custom.formatted_date = dtf.format(new Date(item.context.custom.date));
   }
 
   // Pass post data to the page via props
-  return { props: { item } }
+  return { props: { item } };
 }

@@ -18,6 +18,13 @@ export default function About(props) {
           property="og:image"
           content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/foreign-tendencies`}
         />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="Adele Matthews - About" />
+        <meta property="twitter:description" content="New Zealand artist working in Wellington." />
+        <meta
+          property="twitter:image"
+          content={`https://res.cloudinary.com/rojoca/image/upload/w_300,ar_1/foreign-tendencies`}
+        />
         <link rel="icon" type="image/png" href="/favicon.ico" />
       </Head>
       <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4">About</h1>
