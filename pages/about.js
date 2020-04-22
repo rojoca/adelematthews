@@ -1,6 +1,6 @@
-import Head from "next/head"
-import React from "react"
-import { Image, Transformation } from "cloudinary-react"
+import Head from "next/head";
+import React from "react";
+import { Image, Transformation } from "cloudinary-react";
 
 export default function About(props) {
   return (
@@ -30,7 +30,7 @@ export default function About(props) {
       <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4">About</h1>
       <div className="md:flex md:flex-row items-start">
         <figure className="float-left md:block w-1/2 pr-4 pb-4 md:pr-8 md:pb-8">
-          <Image cloudName="rojoca" publicId="foreign-tendencies">
+          <Image cloudName="rojoca" publicId="foreign-tendencies" secure>
             <Transformation aspectRatio="1" crop="crop" />
           </Image>
         </figure>
@@ -60,7 +60,7 @@ export default function About(props) {
 
       <div className="md:flex md:flex-row items-start">
         <figure className="float-left md:block w-1/2 pr-4 pb-4 md:pr-8 md:pb-8">
-          <Image cloudName="rojoca" publicId="forest-floor-5">
+          <Image cloudName="rojoca" publicId="forest-floor-5" secure>
             <Transformation aspectRatio="1" crop="crop" />
           </Image>
         </figure>
@@ -81,5 +81,5 @@ export default function About(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

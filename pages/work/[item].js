@@ -71,6 +71,7 @@ export default function Item({ item }) {
         cloudName="rojoca"
         publicId={item.public_id}
         className="w-full sm:w-1/2 md:w-2/3 shadow-lg"
+        secure
       >
         <Transformation aspectRatio="1" crop="crop" />
       </Image>

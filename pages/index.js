@@ -10,7 +10,7 @@ function Item({ item }) {
     <Link href="/work/[item]" as={`/work/${item.public_id}`}>
       <a className="cursor-pointer w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
         <figure>
-          <Image cloudName="rojoca" publicId={item.public_id}>
+          <Image cloudName="rojoca" publicId={item.public_id} secure>
             <Transformation aspectRatio="1" crop="crop" />
           </Image>
           <figcaption className="text-gray-600 uppercase text-sm py-2">{data.caption}</figcaption>
