@@ -14,7 +14,7 @@
     "formik": "^2.1.4",
     "framer-motion": "^1.10.3",
     "lodash": "4.0",
-    "next": "9.3.4",
+    "next": "9.3.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "typeface-montserrat": "^0.0.75",
@@ -36,5 +36,4 @@
     "printWidth": 100,
     "semi": true
   }
-
 }
