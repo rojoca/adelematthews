@@ -13,7 +13,7 @@ function Item({ item }) {
           <Image cloudName="rojoca" publicId={item.public_id} secure>
             <Transformation aspectRatio="1" crop="crop" />
           </Image>
-          <figcaption className="text-gray-600 uppercase text-sm py-2">{data.caption}</figcaption>
+          <figcaption className="text-gray-600 uppercase text-sm py-2 text-center">{data.caption}</figcaption>
         </figure>
       </a>
     </Link>
