@@ -45,10 +45,10 @@ export default function Home({ items }) {
         />
         <link rel="icon" type="image/png" href="/favicon.ico" />
       </Head>
-      <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4">Work</h1>
+      <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4 text-center">Work</h1>
 
-      <div className="text-sm text-gray-700 w-full md:w-1/2 lg:w-1/3 mb-8">
-        <div className="">
+      <div className="text-sm text-gray-700 w-full md:w-1/2 lg:w-1/3 mb-8 text-center">
+        <div className="mx-auto">
           <p className="mb-2">Welcome. I am a New Zealand artist working in Wellington.</p>
           <p className="">
             This website aims to make my art available to anyone interested in art of a New Zealand
@@ -56,7 +56,7 @@ export default function Home({ items }) {
           </p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row sm:flex-wrap -mx-4">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap -mx-4 mt-8">
         {items.map(item => (
           <Item item={item} key={item.public_id} />
         ))}
