@@ -47,8 +47,8 @@ export default function Home({ items }) {
       </Head>
       <h1 className="w-full font-body uppercase text-2xl text-gray-500 mb-4 text-center">Work</h1>
 
-      <div className="text-sm text-gray-700 w-full md:w-1/2 lg:w-1/3 mb-8 text-center">
-        <div className="mx-auto">
+      <div className="mx-auto text-sm text-gray-700 w-full md:w-1/2 lg:w-1/3 mb-8 text-center">
+        <div className="">
           <p className="mb-2">Welcome. I am a New Zealand artist working in Wellington.</p>
           <p className="">
             This website aims to make my art available to anyone interested in art of a New Zealand
