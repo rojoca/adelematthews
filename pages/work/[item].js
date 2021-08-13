@@ -85,8 +85,10 @@ export default function Item({ item }) {
         >
           <p className="font-bold">{data.caption}</p>
           {data.alt && <p className="text-xs">{data.alt}</p>}
-          {data.price && !isNaN(data.price) && (
+          {data.price && !isNaN(data.price) ? (
             <P classNames="italic uppercase">{price(data.price)}</P>
+          ) : (
+            <P classNames="italic capitalize text-xs">{data.price}</P>
           )}
           {(data.materials || data.date) && (
             <div className="flex flex-row items-end justify-between text-xs text-gray-500">
@@ -134,7 +136,7 @@ export async function getStaticPaths() {
   const items = await getItems();
 
   // Get the paths we want to pre-render based on posts
-  const paths = items.resources.map(item => ({
+  const paths = items.resources.map((item) => ({
     params: { item: item.public_id },
   }));
 
