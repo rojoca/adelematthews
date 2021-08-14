@@ -4,6 +4,25 @@ import { getItems } from "./api";
 import React from "react";
 import { Image, Transformation } from "cloudinary-react";
 
+// const Anchor = klass.a`w-full md:w-1/2 lg:w-1/3 px-4 mb-4`;
+// const FigCaption = klass.figcaption`text-gray-600 uppercase text-sm py-2`;
+//
+// function CleanItem({ item }) {
+//   const data = item.context.custom;
+//   return (
+//     <Link href="/work/[item]" as={`/work/${item.public_id}`}>
+//       <Anchor>
+//         <figure>
+//           <Image cloudName="rojoca" publicId={item.public_id} secure>
+//             <Transformation aspectRatio="1" crop="crop" />
+//           </Image>
+//           <FigCaption>{data.caption}</FigCaption>
+//         </figure>
+//       </Anchor>
+//     </Link>
+//   );
+// }
+
 function Item({ item }) {
   const data = item.context.custom;
   return (

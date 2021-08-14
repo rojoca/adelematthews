@@ -148,8 +148,9 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const item = await getItem(params.item);
-  if (item && item.context && item.context.custom && item.context.custom.date) {
-    item.context.custom.formatted_date = dtf.format(new Date(item.context.custom.date));
+  const date = item?.context?.custom?.date;
+  if (date) {
+    item.context.custom.formatted_date = isNaN(Number(date)) ? dtf.format(new Date(date)) : date;
   }
 
   // Pass post data to the page via props
